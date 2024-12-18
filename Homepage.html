@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Playza - Temukan hiburan tanpa batas dengan ribuan film, serial, dan konten eksklusif dari berbagai genre.">
+    <title>Playza - Temukan Hiburanmu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide-icons"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <style>
+        header h1 {
+    animation: fadeIn 2s ease-out;
+}
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.9), rgba(17, 24, 39, 1));
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Styles */
+        .navbar-glass {
+         background: rgba(0, 0, 0, 0.8);
+         backdrop-filter: blur(15px);
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+         transition: background 0.3s ease, box-shadow 0.3s ease;
+        }       
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.6s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+     /* Typing Effect */
+        /* Typing Effect */
+.typing {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid white;
+    animation: typing 6s steps(40, end) 1s 1 normal, blink 0.5s step-end infinite alternate;
+
+}
+
+/* Mengetik (smooth typing) */
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Berkedip (kursor) */
+@keyframes blink {
+    0% {
+        border-color: transparent;
+    }
+    100% {
+        border-color: white;
+    }
+}
+
+/* Menambahkan jeda setelah selesai mengetik */
+@keyframes pauseTyping {
+    0%, 50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+        /* Footer Styles */
+        footer {
+            background-color: #111;
+            color: #999;
+        }
+
+        /* Hover Effects for Cards */
+        .card:hover {
+          transform: translateY(-10px) scale(1.05);
+         box-shadow: 0 4px 15px rgba(16, 95, 213, 0.3);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Animation for About Section */
+        .about-card {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            opacity: 1;
+        }
+
+        .about-card:not(:hover) {
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+
+<body class="min-h-screen text-white">
+
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar-glass fixed top-0 left-0 right-0 z-50 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                <span class="text-blue-500">Play</span><span>za</span>
+            </div>
+            <button id="burger-menu" class="md:hidden text-white">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+            <div id="nav-links" class="hidden md:flex space-x-6">
+                <a href="#beranda" class="nav-link text-gray-300 hover:text-blue-400">Beranda</a>
+                <a href="#film" class="nav-link text-gray-300 hover:text-blue-400">Film</a>
+                <a href="#serial" class="nav-link text-gray-300 hover:text-blue-400">Serial</a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-blue-400">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[70vh] flex items-center justify-center text-center bg-cover bg-center"
+    style="background-image: url('https://source.unsplash.com/1600x900/?cinema,movie');">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 typing">Dunia Hiburan Tanpa Batas ...</h1>
+        <p class="text-lg md:text-xl text-gray-300 mb-8">Temukan ribuan film, serial, dan konten eksklusif dalam satu
+            platform.</p>
+        <div class="flex justify-center space-x-4">
+            <a href="#beranda" class="cta-button bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-full">Mulai Menonton</a>
+            <a href="#film" class="cta-button bg-gray-800/50 hover:bg-gray-800/70 text-white py-3 px-8 rounded-full">Info Lebih Lanjut</a>
+        </div>
+    </div>
+</header>
+
+    <!-- Content Sections -->
+    <main>
+        <!-- Trending Sekarang Section -->
+<section id="beranda" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-6">Trending Sekarang</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+            <img src="Narto.png" class="w-full h-72 object-cover" alt="Film">
+            <div class="p-4">
+                <h3 class="text-lg font-bold">Naruto Shippuden</h3>
+                <span class="text-sm text-gray-400">Adventure, Ninja, Comedy</span>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+            <img src="jujurku.png" class="w-full h-72 object-cover" alt="Film Action">
+            <div class="p-4">
+                <h3 class="text-lg font-bold">Jujurku Kasian</h3>
+                <span class="text-sm text-gray-400">Aksi, Monster, Fantasi, City</span>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+            <img src="hxh.png" class="w-full h-72 object-cover" alt="Film Komedi">
+            <div class="p-4">
+                <h3 class="text-lg font-bold">Hiatus Tanpa Henti</h3>
+                <span class="text-sm text-gray-400">Adventure</span>
+            </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+            <img src="SAo.png" class="w-full h-72 object-cover" alt="Film Drama">
+            <div class="p-4">
+                <h3 class="text-lg font-bold">Sword Art online</h3>
+                <span class="text-sm text-gray-400">Game, Adventure, Sword</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Film Section -->
+        <section id="film" class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold mb-6">Film Terpopuler</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+                    <img src="blue.png" class="w-full h-72 object-cover" alt="Film Action">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Kunci Biru</h3>
+                        <span class="text-sm text-gray-400">Sports</span>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+                    <img src="dan.png" class="w-full h-72 object-cover" alt="Film Drama">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Nyari Biji</h3>
+                        <span class="text-sm text-gray-400">Alien</span>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+                    <img src="https://us.oricon-group.com/upimg/detail/0/387/img660/780ce45947059dff2c043196572561f9.jpg" class="w-full h-72 object-cover" alt="Film Fantasi">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">MHA</h3>
+                        <span class="text-sm text-gray-400">Superpower</span>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+                    <img src="https://cdn0-production-images-kly.akamaized.net/Q-YVPHSgLwXrqfbc8UQl7WIbHfM=/1200x1200/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4186447/original/096454300_1665386069-MV5BODFmYTUwYzMtM2M2My00NGExLWIzMDctYmRjNTNhZDc4MGI2XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_.jpg" class="w-full h-72 object-cover" alt="Film Fantasi">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Bleach</h3>
+                        <span class="text-sm text-gray-400">Fantasi</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serial Section -->
+        <section id="serial" class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold mb-6">Serial Terpopuler</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202405/2306/9c2d5058e4517a674ceb9afa25aab9bcc7691e5a725dfe47.jpg" class="w-full h-72 object-cover" alt="Serial Petualangan">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Dragonball</h3>
+                        <span class="text-sm text-gray-400">Petualangan</span>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+                    <img src="https://awsimages.detik.net.id/community/media/visual/2024/02/20/manga-one-piece-volume-108.jpeg?w=700&q=90" class="w-full h-72 object-cover" alt="Serial Komedi">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Wanpis</h3>
+                        <span class="text-sm text-gray-400">Adventure, Pirate</span>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+                    <img src="https://m.media-amazon.com/images/I/71+pBs4nSvL.jpg" class="w-full h-72 object-cover" alt="Serial Misteri">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Danganronpa</h3>
+                        <span class="text-sm text-gray-400">Misteri, Thriller</span>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-700 card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BZjBkYmRiOTAtY2IwOS00ZWU3LTk3YjItNjMzYWZiMDE1MjcyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" class="w-full h-72 object-cover" alt="Film Fantasi">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Assasination Classroom</h3>
+                        <span class="text-sm text-gray-400">Action, Comedy, Shōnen</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-gray-900">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-8">Tentang Playza</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-gray-800 rounded-lg shadow-lg about-card">
+                        <i data-lucide="film" class="text-blue-500 w-12 h-12 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Ribuan Film</h3>
+                        <p class="text-gray-400">Akses koleksi film dari berbagai genre dan negara.</p>
+                    </div>
+                    <div class="p-6 bg-gray-800 rounded-lg shadow-lg about-card">
+                        <i data-lucide="tv" class="text-blue-500 w-12 h-12 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Serial Terbaru</h3>
+                        <p class="text-gray-400">Nonton serial favorit kapan saja dan di mana saja.</p>
+                    </div>
+                    <div class="p-6 bg-gray-800 rounded-lg shadow-lg about-card">
+                        <i data-lucide="users" class="text-blue-500 w-12 h-12 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Komunitas Aktif</h3>
+                        <p class="text-gray-400">Bergabung dengan komunitas penggemar film dan serial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-6">
+        <div class="container mx-auto text-center text-sm text-gray-500">
+            <p>&copy; 2024 Playza. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const burgerMenu = document.getElementById('burger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        burgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
