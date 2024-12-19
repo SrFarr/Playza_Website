@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playza - Login</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a, #1b1b1b);
+            color: #fff;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            height: 80vh;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Left Panel */
+        .left-panel {
+            flex: 1;
+            background: linear-gradient(135deg, #001a33, #0a3d62);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .left-panel img {
+            max-width: 80%;
+            margin: 20px 0;
+        }
+
+        /* Right Panel */
+        .right-panel {
+            flex: 1;
+            background: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Card Container (Form Login) */
+        .card {
+            background: #181818;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Judul */
+        .card h2 {
+            margin-bottom: 25px;
+            font-size: 2rem;
+            color: #00c3ff;
+        }
+
+        /* Input Fields */
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 12px;
+            border: 1px solid #444;
+            border-radius: 6px;
+            background: #222;
+            color: #fff;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #00c3ff;
+            box-shadow: 0 0 8px #00c3ff;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        input:focus::placeholder {
+            color: transparent;
+        }
+
+        /* Floating Label */
+        label {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus ~ label,
+        input:not(:placeholder-shown) ~ label {
+            top: -8px;
+            left: 10px;
+            font-size: 0.9rem;
+            color: #00c3ff;
+        }
+
+        /* Button Styles */
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #007bb5, #00c3ff);
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #006c99, #00a3e0);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 195, 255, 0.4);
+        }
+
+        /* Social Login */
+        .social-login img {
+            width: 35px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .social-login img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-panel {
+                display: none;
+            }
+
+            .card {
+                max-width: 90%;
+                padding: 40px;
+            }
+        }
+
+        /* Toggle Password Styles */
+        /* Toggle Password Styles */
+        .toggle-password {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #fff;
+            margin-top: 10px;
+            justify-content: flex-start;
+        }
+
+        .toggle-password input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #00c3ff;
+            margin: 0;
+        }
+
+        .toggle-password h4 {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <h1>Selamat Datang</h1>
+            <img src="Playza.png" alt="Logo Playza">
+            <p>Masuk dan nikmati semua fitur menarik Playza!</p>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <div class="card">
+                <h2>Login Akun</h2>
+                <form id="loginForm">
+                    <div class="input-container">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">E-Mail</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" id="password" placeholder=" " required>
+                        <label for="password">Kata Sandi</label>
+                    </div>
+                    <div class="toggle-password">
+                        <input type="checkbox" id="showPassword">
+                        
+                        <h4>Tampilkan Kata Sandi</h4>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Belum punya akun? <a href="index.html" id="registerLink">Registrasi</a></p>
+                <p>Atau login dengan</p>
+                <div class="social-login">
+                    <img src="Google.png" alt="Google" title="Google">
+                    <img src="Faceboo.png" alt="Facebook" title="Facebook">
+                    <img src="ig.png" alt="Instagram" title="Instagram">
+                    <img src="X.png" alt="X" title="X">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("showPassword").addEventListener("change", function () {
+            const passwordInput = document.getElementById("password");
+            passwordInput.type = this.checked ? "text" : "password";
+        });
+
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            if (!email || !password) {
+                alert("Harap isi email dan kata sandi.");
+                return;
+            }
+
+            alert("Login berhasil!\nSelamat datang kembali di Playza.");
+            window.location.href = "Homepage.html";
+        });
+
+        document.getElementById("registerLink").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+
+</html>
