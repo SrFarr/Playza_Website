@@ -10,9 +10,6 @@
     <script src="https://unpkg.com/lucide-icons"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <style>
-        header h1 {
-    animation: fadeIn 2s ease-out;
-}
         html {
             scroll-behavior: smooth;
         }
@@ -24,13 +21,12 @@
             padding: 0;
         }
 
-        /* Navbar Styles */
         .navbar-glass {
-         background: rgba(0, 0, 0, 0.8);
-         backdrop-filter: blur(15px);
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-         transition: background 0.3s ease, box-shadow 0.3s ease;
-        }       
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
 
         .nav-link {
             position: relative;
@@ -74,66 +70,39 @@
             left: 100%;
         }
 
-     /* Typing Effect */
-        /* Typing Effect */
-.typing {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid white;
-    animation: typing 6s steps(40, end) 1s 1 normal, blink 0.5s step-end infinite alternate;
-
-}
-
-/* Mengetik (smooth typing) */
-@keyframes typing {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
-}
-
-/* Berkedip (kursor) */
-@keyframes blink {
-    0% {
-        border-color: transparent;
-    }
-    100% {
-        border-color: white;
-    }
-}
-
-/* Menambahkan jeda setelah selesai mengetik */
-@keyframes pauseTyping {
-    0%, 50% {
-        width: 100%;
-    }
-    100% {
-        width: 0;
-    }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-        /* Footer Styles */
-        footer {
-            background-color: #111;
-            color: #999;
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
         }
 
-        /* Hover Effects for Cards */
+        @keyframes blink {
+            0% {
+                border-color: transparent;
+            }
+            100% {
+                border-color: white;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
         .card:hover {
-          transform: translateY(-10px) scale(1.05);
-         box-shadow: 0 4px 15px rgba(16, 95, 213, 0.3);
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 4px 15px rgba(16, 95, 213, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Animation for About Section */
         .about-card {
             transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
         }
@@ -146,7 +115,6 @@
         .about-card:not(:hover) {
             opacity: 0.7;
         }
-
     </style>
 </head>
 
@@ -171,23 +139,21 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative h-[70vh] flex items-center justify-center text-center bg-cover bg-center"
-    style="background-image: url('https://source.unsplash.com/1600x900/?cinema,movie');">
-    <div class="absolute inset-0 bg-black/50"></div>
-    <div class="relative z-10">
-        <h1 class="text-5xl md:text-6xl font-bold mb-4 typing">Dunia Hiburan Tanpa Batas ...</h1>
-        <p class="text-lg md:text-xl text-gray-300 mb-8">Temukan ribuan film, serial, dan konten eksklusif dalam satu
-            platform.</p>
-        <div class="flex justify-center space-x-4">
-            <a href="#beranda" class="cta-button bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-full">Mulai Menonton</a>
-            <a href="#film" class="cta-button bg-gray-800/50 hover:bg-gray-800/70 text-white py-3 px-8 rounded-full">Info Lebih Lanjut</a>
+    <header class="relative h-[70vh] flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('https://source.unsplash.com/1600x900/?cinema,movie');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Dunia Hiburan Tanpa Batas ...</h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">Temukan ribuan film, serial, dan konten eksklusif dalam satu platform.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#beranda" class="cta-button bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-full">Mulai Menonton</a>
+                <a href="#film" class="cta-button bg-gray-800/50 hover:bg-gray-800/70 text-white py-3 px-8 rounded-full">Info Lebih Lanjut</a>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
-    <!-- Content Sections -->
+    <!-- Sections -->
     <main>
-        <!-- Trending Sekarang Section -->
+               <!-- Trending Sekarang Section -->
 <section id="beranda" class="container mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold mb-6">Trending Sekarang</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -319,7 +285,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
@@ -337,7 +302,6 @@
             navLinks.classList.toggle('hidden');
         });
     </script>
-
 </body>
 
 </html>
